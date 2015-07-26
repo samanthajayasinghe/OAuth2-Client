@@ -2,6 +2,13 @@
     "name": "samanthajayasinghe/oauth",
     "type": "library",
     "description": "Samantha/OAuth client",
+    "keywords": ["oauth2","php", "client"],
+    "authors": [
+        {
+            "name": "Samantha Jayasinghe",
+            "email": "isamantha@gmail.com"
+        }
+    ],
     "require": {
         "php": ">=5.2.1"
     },
