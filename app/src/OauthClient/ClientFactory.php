@@ -2,8 +2,8 @@
 namespace OauthClient;
 
 use OauthClient\Exception\ClientException;
-use OauthClient\Vendor\Google;
-use OauthClient\Vendor\Facebook;
+use OauthClient\Provider\Google;
+use OauthClient\Provider\Facebook;
 class ClientFactory {
 
     /**

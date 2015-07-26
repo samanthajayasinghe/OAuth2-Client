@@ -1,6 +1,6 @@
 <?php
 
-namespace OauthClient\Vendor;
+namespace OauthClient\Provider;
 
 use OauthClient\OauthClient;
 use \Google_Client;

@@ -6,7 +6,7 @@
  * Time: 12:29
  */
 
-namespace OauthClient\Vendor;
+namespace OauthClient\Provider;
 
 
 class Facebook {
