@@ -1,36 +1,35 @@
 <?php
+ini_set('display_errors',true);
 require_once 'vendor/autoload.php';
 
 use \Symfony\Component\HttpFoundation\Request;
 use \Symfony\Component\HttpFoundation\Response;
+use OauthClient\Service\ClientService;
+use OauthClient\Config;
 
 $app = new Silex\Application();
+$app['debug'] = true;
 
-function getClient(){
-    $clientId = '<CLIENT-ID>';
-    $clientSecret = '<CLIENT-SECRET>';
-    $redirectUrl = '<HOST>/oauth2callback';
+$clientId = '53712880555-5llqustj9g6trps9h49pila1191sa9p7.apps.googleusercontent.com';
+$clientSecret = 'ih75vHw-4_TUSxaISvYqLUsw';
+$redirectUrl = 'http://git-oauth.dev/index.php/oauth2callback';
 
-    $client = new Google_Client();
-    $client->setClientId($clientId);
-    $client->setClientSecret($clientSecret);
-    $client->setRedirectUri($redirectUrl);
-    $client->setScopes(['openid','email', 'profile']);
-    $client->setIncludeGrantedScopes(true);
+$service = new ClientService(
+                new Config('google', $clientId, $clientSecret, $redirectUrl)
+            );
 
-    return $client;
-}
-$app->get('/', function() use($app) {
-    $client = getClient();
-    return $app->redirect($client->createAuthUrl());
+$app->get('/', function() use($app, $service) {
+
+    return $app->redirect($service->getAuthUrl());
+    return new Response();
 });
 
-$app->get('/oauth2callback', function(Request $request) use($app) {
+$app->get('/oauth2callback', function(Request $request) use($app, $service) {
     $code = $request->get('code');
-    $client = getClient();
-    $client->authenticate($code);
-    $userInfoService = new Google_Service_Oauth2($client);
-    $userInfo = $userInfoService->userinfo->get();
+    if($service->authenticate($code)){
+        $service->getUserInfo();
+        //Do anything after that
+    }
     return new Response();
 });
 

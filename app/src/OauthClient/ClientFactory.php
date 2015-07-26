@@ -2,18 +2,14 @@
 namespace OauthClient;
 
 use OauthClient\Exception\ClientException;
-
+use OauthClient\Vendor\Google;
+use OauthClient\Vendor\Facebook;
 class ClientFactory {
-
-    const OAUTH_VENDOR_NAME_GOOGLE = 'google';
-
-    const OAUTH_VENDOR_NAME_FACEBOOK = 'facebook';
-
-    const OAUTH_VENDOR_NAME_LINKEDIN = 'linkedin';
 
     /**
      * @param $vendorName
      * @throws ClientException
+     * @return OauthClient
      */
     public function getClient($vendorName)
     {
@@ -22,14 +18,21 @@ class ClientFactory {
         }
         switch ($vendorName) {
 
-            case self::OAUTH_VENDOR_GOOGLE_NAME:
-
+            case Config::OAUTH_PROVIDER_NAME_GOOGLE:
+                return new Google();
+            break;
+            case Config::OAUTH_PROVIDER_NAME_FACEBOOK:
+                return new Facebook();
+            break;
+            case Config::OAUTH_PROVIDER_NAME_LINKEDIN:
+                return new Linkedin();
             break;
         }
     }
 
     /**
-     * @return array
+     * @param $vendorName
+     * @return bool
      */
     private function isAllowedVendor($vendorName){
         return in_array(
@@ -43,9 +46,9 @@ class ClientFactory {
      */
     private function getAllowedVendors(){
         return [
-            self::OAUTH_VENDOR_NAME_GOOGLE,
-            self::OAUTH_VENDOR_NAME_FACEBOOK,
-            self::OAUTH_VENDOR_NAME_LINKEDIN
+            Config::OAUTH_PROVIDER_NAME_GOOGLE,
+            Config::OAUTH_PROVIDER_NAME_FACEBOOK,
+            Config::OAUTH_PROVIDER_NAME_LINKEDIN
         ];
     }
 } 
