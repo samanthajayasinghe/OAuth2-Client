@@ -1,7 +1,7 @@
 {
-    "name": "samanthajayasinghe/google-oauth",
+    "name": "samanthajayasinghe/oauth",
     "type": "library",
-    "description": "Samantha/Google OAuth client",
+    "description": "Samantha/OAuth client",
     "require": {
         "php": ">=5.2.1"
     },
