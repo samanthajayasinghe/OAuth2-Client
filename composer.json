@@ -1,5 +1,5 @@
 {
-    "name": "Samantha/Google OAuth client",
+    "name": "samanthajayasinghe/google-oauth",
     "type": "library",
     "description": "Samantha/Google OAuth client",
     "require": {
