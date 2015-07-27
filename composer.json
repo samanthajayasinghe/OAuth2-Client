@@ -1,8 +1,8 @@
 {
-    "name": "samanthajayasinghe/oauth",
+    "name": "samanthajayasinghe/OAuth2-Client",
     "type": "library",
-    "description": "Samantha/OAuth client",
-    "keywords": ["oauth2","php", "client"],
+    "description": "Samantha/OAuth2 client",
+    "keywords": ["oauth2","php", "client","google OAuth2"],
     "authors": [
         {
             "name": "Samantha Jayasinghe",
