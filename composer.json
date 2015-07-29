@@ -1,8 +1,9 @@
 {
     "name": "samanthajayasinghe/oauth2-client",
     "type": "library",
-    "description": "Samantha/OAuth2 client",
+    "description": "OAuth2 client supports for Google, Facebook and Linkedin",
     "keywords": ["oauth2","php", "client","google OAuth2"],
+    "license": "Apache-2.0",
     "authors": [
         {
             "name": "Samantha Jayasinghe",
