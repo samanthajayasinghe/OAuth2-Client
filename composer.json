@@ -1,5 +1,5 @@
 {
-    "name": "samanthajayasinghe/OAuth2-Client",
+    "name": "samanthajayasinghe/oauth2-client",
     "type": "library",
     "description": "Samantha/OAuth2 client",
     "keywords": ["oauth2","php", "client","google OAuth2"],
