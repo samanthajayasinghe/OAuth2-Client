@@ -2,6 +2,7 @@
 
 namespace OauthClient\Service;
 
+use Google_Service_Oauth2;
 use OauthClient\Config;
 use OauthClient\OauthClient;
 use OauthClient\ClientFactory;

@@ -26,10 +26,10 @@ $app->get('/', function() use($app, $service) {
 
 $app->get('/oauth2callback', function(Request $request) use($app, $service) {
     $code = $request->get('code');
-    if($service->authenticate($code)){
-        $service->getUserInfo();
+    //if($service->authenticate($code)){
+       // $service->getUserInfo();
         //Do anything after that
-    }
+    //}
     return new Response();
 });
 
